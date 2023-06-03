@@ -1,4 +1,4 @@
-//Importing
+//Importing express and mongoose
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -15,11 +15,15 @@ app.use(
 
 app.use(express.json());
 
-//Database connection
-const conn = require("./config/db");
-conn();
-
 //Set listening port
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
 });
+
+//Database connection
+const conn = require("./db/db");
+conn();
+
+//Routes
+const routes = require("./routes/router");
+app.use("/api", routes);
