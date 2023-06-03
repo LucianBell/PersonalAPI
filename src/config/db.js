@@ -1,7 +1,14 @@
-import mongoose from "mongoose";
-const env = process.env.DB_URI;
+const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 
-mongoose.connect(env);
-const db = mongoose.connection;
+async function main() {
+  try {
+    mongoose.set("strictQuery", true);
+    await mongoose.connect(process.env.DB_URI);
+    console.log("Sucessfully connected!");
+  } catch (err) {
+    console.log(`Error: ${err}`);
+  }
+}
 
-export default db;
+module.exports = main;

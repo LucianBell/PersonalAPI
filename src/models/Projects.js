@@ -13,3 +13,7 @@ const projectsSchema = new mongoose.Schema({
   ],
   codeLink: { type: String },
 });
+
+const projects = mongoose.model("projects", projectsSchema);
+
+export default projects;
