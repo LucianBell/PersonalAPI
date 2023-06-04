@@ -11,6 +11,7 @@ const certificationController = {
         image: req.body.image,
         title: req.body.title,
         origin: req.body.origin,
+        date: req.body.date,
         link: req.body.link,
       };
 
@@ -73,6 +74,7 @@ const certificationController = {
         image: req.body.image,
         title: req.body.title,
         origin: req.body.origin,
+        date: req.body.date,
         link: req.body.link,
       };
 
