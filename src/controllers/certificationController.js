@@ -52,6 +52,7 @@ const certificationController = {
 
       if (!certification) {
         res.status(404).json({ message: "Certification not found" });
+        return;
       }
 
       const deletedCertification = await certificationSchema.findByIdAndDelete(
@@ -61,6 +62,33 @@ const certificationController = {
       res
         .status(200)
         .json({ deletedCertification, message: "Certification deleted" });
+    } catch (error) {
+      res.status(500).send({ error: error });
+    }
+  },
+  update: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const certification = {
+        image: req.body.image,
+        title: req.body.title,
+        origin: req.body.origin,
+        link: req.body.link,
+      };
+
+      const updatedCertification = await certificationSchema.findByIdAndUpdate(
+        id,
+        certification
+      );
+
+      if (!updatedCertification) {
+        res.status(404).json({ message: "Certification not found" });
+        return;
+      }
+
+      res
+        .status(200)
+        .json({ certification, message: "Certification updated sucessfully" });
     } catch (error) {
       res.status(500).send({ error: error });
     }

@@ -19,4 +19,8 @@ router
   .route("/certifications/:id")
   .delete((req, res) => certificationController.delete(req, res));
 
+router
+  .route("/certifications/:id")
+  .put((req, res) => certificationController.update(req, res));
+
 module.exports = router;
