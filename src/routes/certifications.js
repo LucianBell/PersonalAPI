@@ -6,3 +6,13 @@ const certificationController = require("../controllers/certificationController"
 router
   .route("/certifications")
   .post((req, res) => certificationController.create(req, res));
+
+router
+  .route("/certifications")
+  .get((req, res) => certificationController.getAll(req, res));
+
+router
+  .route("/certifications/:id")
+  .get((req, res) => certificationController.get(req, res));
+
+module.exports = router;

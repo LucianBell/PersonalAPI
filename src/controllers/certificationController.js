@@ -18,7 +18,29 @@ const certificationController = {
 
       res
         .status(201)
-        .send({ response, message: "Project created sucessfully" });
+        .send({ response, message: "Certification registered sucessfully" });
+    } catch (error) {
+      res.status(500).send({ error: error });
+    }
+  },
+  getAll: async (req, res) => {
+    try {
+      const certifications = await certificationSchema.find();
+      res.status(200).send({ certifications });
+    } catch (error) {
+      res.status(500).send({ error: error });
+    }
+  },
+  get: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const certification = await certificationSchema.findById(id);
+
+      if (!certification) {
+        res.status(404).json({ message: "Certification not found" });
+        return;
+      }
+      res.status(200).json(certification);
     } catch (error) {
       res.status(500).send({ error: error });
     }
