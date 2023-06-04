@@ -45,6 +45,26 @@ const certificationController = {
       res.status(500).send({ error: error });
     }
   },
+  delete: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const certification = await certificationSchema.findById(id);
+
+      if (!certification) {
+        res.status(404).json({ message: "Certification not found" });
+      }
+
+      const deletedCertification = await certificationSchema.findByIdAndDelete(
+        id
+      );
+
+      res
+        .status(200)
+        .json({ deletedCertification, message: "Certification deleted" });
+    } catch (error) {
+      res.status(500).send({ error: error });
+    }
+  },
 };
 
 module.exports = certificationController;
