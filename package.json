@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "An API for my personal use, with my projects and certifications.",
   "main": "index.js",
+  "engines": {
+    "node": "≥18"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/index.js"
