@@ -10,6 +10,8 @@ const projectSchema = new Schema(
       required: true,
     },
     codeLink: { type: String, required: true },
+    isDeployed: { type: Boolean, required: true },
+    deployedLink: { type: String },
   },
   { timestamps: true }
 );
