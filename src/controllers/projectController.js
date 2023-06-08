@@ -8,8 +8,9 @@ const projectController = {
         title: req.body.title,
         languages: req.body.languages,
         codeLink: req.body.codeLink,
+        isDeployed: req.body.isDeployed,
+        deployedLink: req.body.deployedLink,
       };
-
       const response = await projectSchema.create(project);
 
       res
@@ -66,6 +67,8 @@ const projectController = {
         title: req.body.title,
         languages: req.body.languages,
         codeLink: req.body.codeLink,
+        isDeployed: req.body.isDeployed,
+        deployedLink: req.body.deployedLink,
       };
 
       const updatedProject = await projectSchema.findByIdAndUpdate(id, project);
