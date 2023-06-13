@@ -13,6 +13,7 @@ const certificationController = {
         origin: req.body.origin,
         date: req.body.date,
         link: req.body.link,
+        stared: req.body.stared,
       };
 
       const response = await certificationSchema.create(certification);
@@ -76,6 +77,7 @@ const certificationController = {
         origin: req.body.origin,
         date: req.body.date,
         link: req.body.link,
+        stared: req.body.stared,
       };
 
       const updatedCertification = await certificationSchema.findByIdAndUpdate(

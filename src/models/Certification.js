@@ -11,6 +11,7 @@ const certificationSchema = new Schema(
     },
     date: { type: Date, default: Date.now },
     link: { type: String, required: true },
+    stared: { type: Boolean, required: true },
   },
   { timestamps: true }
 );
